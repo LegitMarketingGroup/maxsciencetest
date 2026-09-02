@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Life Science Chapter 1 practice quiz for Max: 62 auto-graded questions with a score at the end.">
+<title>Life Science Chapter 1 Quiz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --bg:#F4F8F2; --surface:#FFFFFF; --surface-2:#E9F1E8; --ink:#152419; --muted:#5A6B60; --line:#CFDACF;
+    --accent:#1E7A4C; --accent-ink:#FFFFFF; --accent-soft:#DBEFE2;
+    --gold:#F3CB4F; --gold-ink:#3A2B00;
+    --good:#1E7A4C; --good-soft:#DBEFE2; --bad:#C2452B; --bad-soft:#FBE3DD; --warn:#A8701A; --warn-soft:#FBEED0;
+    --stamp:#C2452B; --grid:rgba(30,122,76,.13);
+    --shadow:0 1px 2px rgba(21,36,25,.05),0 8px 24px rgba(21,36,25,.06);
+    --night:#090C16;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0E1512; --surface:#161F1A; --surface-2:#1E2A23; --ink:#E7EFE8; --muted:#9BAAA0; --line:#2B3A31;
+      --accent:#4CC48B; --accent-ink:#06170E; --accent-soft:#1B3A2A;
+      --gold:#F3CB4F; --gold-ink:#3A2B00;
+      --good:#4CC48B; --good-soft:#1B3A2A; --bad:#F08A72; --bad-soft:#3E1F18; --warn:#E3B45A; --warn-soft:#3B2E12;
+      --stamp:#F08A72; --grid:rgba(76,196,139,.14);
+      --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0E1512; --surface:#161F1A; --surface-2:#1E2A23; --ink:#E7EFE8; --muted:#9BAAA0; --line:#2B3A31;
+    --accent:#4CC48B; --accent-ink:#06170E; --accent-soft:#1B3A2A;
+    --gold:#F3CB4F; --gold-ink:#3A2B00;
+    --good:#4CC48B; --good-soft:#1B3A2A; --bad:#F08A72; --bad-soft:#3E1F18; --warn:#E3B45A; --warn-soft:#3B2E12;
+    --stamp:#F08A72; --grid:rgba(76,196,139,.14);
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.35);
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:17px; line-height:1.5;
+  }
+  button,input,select{font:inherit;color:inherit}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+  .display{font-family:"Bricolage Grotesque","Atkinson Hyperlegible",system-ui,sans-serif}
+
+  /* ---------- header: graph paper ---------- */
+  .hero{
+    background-color:var(--surface);
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:24px 24px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{max-width:760px;margin:0 auto;padding:28px 20px 24px}
+  .tab{
+    display:inline-block;background:var(--accent);color:var(--accent-ink);
+    font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;
+    padding:5px 10px;border-radius:6px 6px 0 0;
+  }
+  .hero h1{
+    font-family:"Bricolage Grotesque","Atkinson Hyperlegible",sans-serif;font-weight:800;font-size:clamp(1.9rem,5vw,2.6rem);
+    line-height:1.05;margin:6px 0 8px;text-wrap:balance;letter-spacing:-.01em;
+  }
+  .hero .sub{margin:0;color:var(--muted);max-width:60ch}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:.9rem;color:var(--muted)}
+  .hero .meta b{color:var(--ink);font-weight:700}
+
+  /* ---------- sticky bar ---------- */
+  .bar{
+    position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);
+    box-shadow:0 2px 10px rgba(0,0,0,.04);
+  }
+  .bar-inner{max-width:760px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:12px}
+  .prog{flex:1;min-width:0}
+  .prog-text{font-family:"IBM Plex Mono",monospace;font-size:.85rem;color:var(--muted);white-space:nowrap}
+  @media (max-width:480px){.bar-inner{gap:8px;padding:8px 12px}.btn{padding:9px 12px}.btn.small{padding:7px 8px}}
+  .track{height:6px;background:var(--surface-2);border-radius:99px;margin-top:5px;overflow:hidden}
+  .fill{height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .25s ease}
+  .btn{
+    border:1.5px solid var(--accent);background:var(--accent);color:var(--accent-ink);
+    font-weight:700;padding:10px 16px;border-radius:10px;cursor:pointer;white-space:nowrap;
+    transition:transform .08s ease,filter .15s ease;
+  }
+  .btn:hover{filter:brightness(1.06)} .btn:active{transform:translateY(1px)}
+  .btn.ghost{background:transparent;color:var(--accent)}
+  .btn.small{padding:7px 10px;font-size:.85rem;font-weight:400}
+  .btn.plain{background:var(--surface-2);border-color:var(--surface-2);color:var(--ink)}
+  .btn[disabled]{opacity:.5;cursor:not-allowed}
+
+  /* ---------- confirm panel ---------- */
+  .confirm{max-width:760px;margin:12px auto 0;padding:0 20px}
+  .confirm-box{
+    background:var(--warn-soft);border:1px solid var(--warn);border-radius:12px;padding:12px 14px;
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;
+  }
+  .confirm-box p{margin:0;flex:1 1 240px}
+
+  /* ---------- test body ---------- */
+  main{max-width:760px;margin:0 auto;padding:12px 20px 60px}
+  .part{margin-top:34px}
+  .part-head{
+    display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+    background:var(--surface-2);border-left:6px solid var(--accent);padding:10px 14px;border-radius:0 10px 10px 0;
+  }
+  .part-head h2{
+    font-family:"Bricolage Grotesque","Atkinson Hyperlegible",sans-serif;font-weight:800;font-size:1.3rem;margin:0;line-height:1.2;
+  }
+  .part-head .pts{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--muted);margin-left:auto;white-space:nowrap}
+  .instr{color:var(--muted);margin:10px 2px 0;font-size:.95rem}
+
+  .item{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-top:14px;
+    box-shadow:var(--shadow);position:relative;
+  }
+  .qhead{display:flex;gap:12px;align-items:flex-start}
+  .num{
+    font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:.85rem;color:var(--accent);
+    background:var(--accent-soft);border-radius:8px;padding:3px 8px;flex:none;line-height:1.4;margin-top:2px;
+  }
+  .stem{margin:0;flex:1;min-width:0}
+  .stem u{text-decoration-thickness:2px;text-underline-offset:3px;text-decoration-color:var(--accent)}
+
+  .opts{display:grid;gap:8px;margin-top:12px}
+  .opt{
+    display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;
+    cursor:pointer;background:var(--surface);transition:border-color .12s ease,background .12s ease;
+  }
+  .opt:hover{border-color:var(--accent)}
+  .opt.selected{border-color:var(--accent);background:var(--accent-soft)}
+  .opt input{margin:4px 0 0;flex:none;accent-color:var(--accent);width:18px;height:18px}
+  .opt .letter{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--muted);flex:none;width:1.4em}
+  .opt span.text{flex:1}
+
+  select{
+    appearance:none;-webkit-appearance:none;background:var(--surface);border:1.5px solid var(--line);border-radius:10px;
+    padding:9px 34px 9px 12px;max-width:100%;
+    background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+    background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;
+  }
+  select:focus{border-color:var(--accent)}
+
+  /* word bank */
+  .bank{
+    margin-top:12px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:6px 12px;font-size:.95rem;
+  }
+  .bank b{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--accent);margin-right:6px}
+  @media (max-width:520px){.bank{grid-template-columns:repeat(2,1fr)}}
+  .bank.words{display:flex;flex-wrap:wrap;gap:6px 8px}
+  .bank.words span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.9rem}
+  .wsel{padding:5px 30px 5px 10px;margin:2px 3px;border-radius:8px;font-size:.95rem;vertical-align:baseline;border-bottom-width:2px;border-bottom-color:var(--ink)}
+  .levels label select{flex:1;min-width:0}
+
+  .match-row{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}
+  .match-row .stem{flex:1 1 260px}
+  .match-row select{flex:0 0 auto;min-width:170px}
+
+  /* true/false segmented */
+  .seg{display:inline-flex;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;margin-top:12px}
+  .seg label{position:relative;cursor:pointer}
+  .seg input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+  .seg span{display:block;padding:8px 18px;font-weight:700;color:var(--muted)}
+  .seg label + label span{border-left:1.5px solid var(--line)}
+  .seg input:checked + span{background:var(--accent);color:var(--accent-ink)}
+  .seg input:focus-visible + span{outline:3px solid var(--gold);outline-offset:-3px}
+
+  /* chart */
+  .chart{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .chart-row{display:grid;grid-template-columns:1.1fr 1.4fr 1.4fr;gap:8px;padding:10px 12px;border-top:1px solid var(--line);align-items:center}
+  .chart-row:first-child{border-top:0;background:var(--surface-2);font-weight:700}
+  .chart-row .cap{display:none;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:2px}
+  .chart-row .rlabel{font-weight:700}
+  .chart-row.example{background:var(--surface-2)}
+  .chart-row .given{color:var(--muted)}
+  .chart-row select{width:100%}
+  .chart-row .cellrow{display:flex;align-items:center;gap:8px}
+  .chart-row .cellrow select{flex:1;min-width:0}
+  @media (max-width:600px){
+    .chart-row{grid-template-columns:1fr}
+    .chart-row:first-child{display:none}
+    .chart-row .cap{display:block}
+    .chart-row .rlabel{padding-bottom:2px}
+  }
+
+  /* classification */
+  .levels{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin-top:12px}
+  .levels label{display:flex;align-items:center;gap:10px}
+  @media (max-width:520px){.levels{grid-template-columns:1fr}}
+
+  /* order */
+  .order{display:grid;gap:8px;margin-top:12px}
+  .order label{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .order .step{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:.85rem;color:var(--muted);min-width:5.5em}
+  .order select{flex:1;min-width:200px}
+
+  /* grading marks */
+  .item.right{border-color:var(--good)}
+  .item.wrong{border-color:var(--bad)}
+  .item.partial{border-color:var(--warn)}
+  .mark{
+    margin-top:12px;padding:10px 12px;border-radius:10px;font-size:.95rem;display:flex;gap:10px;align-items:flex-start;
+  }
+  .mark svg{flex:none;width:20px;height:20px;margin-top:2px}
+  .item.right .mark{background:var(--good-soft);color:var(--ink)}
+  .item.wrong .mark{background:var(--bad-soft);color:var(--ink)}
+  .item.partial .mark{background:var(--warn-soft);color:var(--ink)}
+  .mark b{font-weight:700}
+  .graded .opt{cursor:default}
+  .graded .opt.answer{border-color:var(--good);background:var(--good-soft)}
+  .graded .opt.picked-wrong{border-color:var(--bad);background:var(--bad-soft)}
+  .graded input[disabled],.graded select[disabled]{opacity:1;color:var(--ink)}
+
+  /* results */
+  .results{max-width:760px;margin:0 auto;padding:22px 20px 0}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px}
+  .score-row{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+  .stamp{
+    width:140px;height:140px;border-radius:50%;border:5px double var(--stamp);color:var(--stamp);
+    display:grid;place-items:center;transform:rotate(-8deg);flex:none;
+    font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:84px;line-height:1;
+    -webkit-mask-image:radial-gradient(circle at 30% 40%,#000 55%,rgba(0,0,0,.75) 70%,#000 100%);
+  }
+  .score-text{flex:1;min-width:220px}
+  .pct{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:2.6rem;line-height:1}
+  .pct small{font-size:1.2rem;font-weight:600;color:var(--muted);margin-left:2px}
+  .pts{font-family:"IBM Plex Mono",monospace;color:var(--muted);margin-top:4px}
+  .msg{margin:10px 0 0;max-width:46ch}
+  .best{font-size:.85rem;color:var(--muted);margin-top:6px}
+
+  .breakdown{width:100%;border-collapse:collapse;margin-top:18px;font-size:.95rem}
+  .breakdown td{padding:7px 4px;border-top:1px solid var(--line);vertical-align:middle}
+  .breakdown tr:first-child td{border-top:0}
+  .breakdown .bname{white-space:nowrap}
+  .breakdown .bbar{width:40%}
+  .breakdown .bnum{font-family:"IBM Plex Mono",monospace;text-align:right;white-space:nowrap;color:var(--muted)}
+  .bt{height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+  .bt i{display:block;height:100%;background:var(--accent);border-radius:99px}
+  .bt i.low{background:var(--bad)}
+  .bt i.mid{background:var(--warn)}
+
+  .missed{margin-top:18px}
+  .missed h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.1rem;margin:0 0 8px}
+  .missed ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+  .missed a{
+    display:inline-block;padding:6px 10px;border-radius:8px;background:var(--bad-soft);color:var(--ink);text-decoration:none;
+    font-family:"IBM Plex Mono",monospace;font-size:.85rem;font-weight:600;
+  }
+  .missed a.partial{background:var(--warn-soft)}
+  .missed a:hover{filter:brightness(.96)}
+  .missed p{margin:6px 0 0;color:var(--muted);font-size:.95rem}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+  /* ---------- overlays ---------- */
+  .overlay{position:fixed;inset:0;z-index:100;display:grid;place-items:center;overflow:hidden}
+  .overlay .inner{position:relative;z-index:2;text-align:center;padding:24px;max-width:90vw}
+  .overlay .big{
+    font-family:"Bricolage Grotesque",sans-serif;font-weight:800;line-height:.95;margin:0;
+    text-wrap:balance;letter-spacing:-.02em;
+  }
+  .overlay .btn{margin-top:22px;opacity:0;transition:opacity .4s ease}
+  .overlay .btn.show{opacity:1}
+  #ov-a{background:var(--night)}
+  #ov-a canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  #ov-a .big{color:#FFF;font-size:clamp(5rem,26vw,13rem);text-shadow:0 0 30px rgba(255,220,120,.55),0 0 80px rgba(255,150,80,.35)}
+  #ov-a .line{color:#FFE9A8;font-size:clamp(1.2rem,4vw,1.8rem);margin:6px 0 0;font-weight:700}
+  #ov-a .line2{color:#B9C3DC;font-size:1.05rem;margin:6px 0 0}
+  #ov-a .btn{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
+  #ov-womp{background:#2A1E22}
+  #ov-womp .big{color:#F3E7D8;font-size:clamp(3rem,12vw,6.5rem)}
+  #ov-womp .line{color:#D9B8A6;font-size:clamp(1.1rem,4vw,1.5rem);margin:14px 0 0;font-weight:700}
+  #ov-womp .line2{color:#A78F86;font-size:1.05rem;margin:6px 0 0}
+  #ov-womp .btn{background:#F3E7D8;border-color:#F3E7D8;color:#2A1E22}
+  .puff{
+    position:absolute;left:50%;bottom:-20vh;width:60vmin;height:60vmin;border-radius:50%;z-index:1;opacity:0;
+    background:radial-gradient(circle,rgba(150,190,60,.55) 0%,rgba(120,160,40,.25) 45%,rgba(120,160,40,0) 70%);
+    transform:translate(-50%,0) scale(.4);pointer-events:none;
+  }
+  .puff.go{animation:puff 2.6s ease-out forwards}
+  @keyframes puff{
+    0%{opacity:0;transform:translate(-50%,0) scale(.3)}
+    15%{opacity:1}
+    100%{opacity:0;transform:translate(-50%,-90vh) scale(1.8)}
+  }
+  .shake{animation:shake .5s ease-in-out 3}
+  @keyframes shake{
+    0%,100%{transform:translate(0,0)} 20%{transform:translate(-9px,3px) rotate(-1deg)} 40%{transform:translate(8px,-4px) rotate(1deg)}
+    60%{transform:translate(-6px,2px)} 80%{transform:translate(6px,-2px)}
+  }
+  .sad-in{animation:sadin .9s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes sadin{from{opacity:0;transform:translateY(-40px) scale(1.15)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .shake{animation:none}
+    .sad-in{animation:none}
+    .puff.go{animation-duration:1.2s}
+    .fill{transition:none}
+  }
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <span class="tab">Chapter 1 practice quiz</span>
+    <h1>God's Living World</h1>
+    <p class="sub">Life Science, sections 1.1 through 1.9. Same questions as the paper practice test, graded the moment you finish. Every question is multiple choice, true or false, or picked from a word bank. No typing.</p>
+    <div class="meta">
+      <span><b>62</b> questions</span>
+      <span><b>83</b> points</span>
+      <span>An A is <b>90% or higher</b></span>
+      <span id="best-line" hidden>Best so far: <b id="best-val"></b></span>
+    </div>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="bar-inner">
+    <div class="prog">
+      <div class="prog-text"><span id="prog-text">0 of 62</span><span class="sr"> answered</span></div>
+      <div class="track"><div class="fill" id="prog-fill"></div></div>
+    </div>
+    <button class="btn ghost small" id="btn-sound" type="button" aria-pressed="true">Sound on</button>
+    <button class="btn" id="btn-check" type="button">Check my answers</button>
+  </div>
+</div>
+
+<div class="confirm" id="confirm" hidden>
+  <div class="confirm-box">
+    <p id="confirm-text">You skipped some questions.</p>
+    <button class="btn plain" id="btn-back" type="button">Take me to the first one</button>
+    <button class="btn" id="btn-anyway" type="button">Check anyway</button>
+  </div>
+</div>
+
+<section class="results" id="results" hidden aria-live="polite"></section>
+
+<main id="test"></main>
+
+<div class="overlay" id="ov-a" hidden>
+  <canvas id="fw"></canvas>
+  <div class="inner">
+    <p class="big" id="a-letter">A</p>
+    <p class="line" id="a-line">Way to go, Max!</p>
+    <p class="line2" id="a-line2"></p>
+    <button class="btn" id="a-close" type="button">See my score</button>
+  </div>
+</div>
+
+<div class="overlay" id="ov-womp" hidden>
+  <div class="puff" id="puff"></div>
+  <div class="inner">
+    <p class="big" id="womp-text">Womp womp.</p>
+    <p class="line">Not an A yet.</p>
+    <p class="line2" id="womp-line2"></p>
+    <button class="btn" id="womp-close" type="button">See my score</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ============================== CONTENT ============================== */
+  const TERMS = ["worldview","naturalism","ethics","cell","homeostasis","hypothesis","model","taxonomy","heterotroph","autotroph","theory","law"];
+  const LETTERS = "ABCDEFGHIJKL";
+  const MATCH = [
+    ["the science of sorting organisms into groups","taxonomy"],
+    ["an organism's ability to keep internal processes stable","homeostasis"],
+    ["the overarching narrative that a person uses to see and interpret the world","worldview"],
+    ["an explanation that is based on limited observations","hypothesis"],
+    ["an idea that scientists use to describe what they observe","law"],
+    ["the study of applying moral principles to life","ethics"],
+    ["an organism that makes its food using energy from its environment","autotroph"],
+    ["the belief that living things came from completely natural processes","naturalism"],
+    ["a simplified explanation, description, or representation of the world","model"],
+    ["the smallest working unit of an organism","cell"],
+    ["an idea that scientists use to explain the data that they have collected","theory"],
+    ["an organism that gets energy by eating other organisms","heterotroph"]
+  ];
+  const MC = [
+    {q:"Life science is best defined as", o:["the study of rocks, minerals, and the earth","the study of life, including what is known about life and the processes used to learn about living things","the study of applying moral principles to life","the study of the stars and planets"], a:1},
+    {q:"Which of the following shows the Bible's big story in the correct order?", o:["Fall, Creation, Redemption","Creation, Redemption, Fall","Creation, Fall, Redemption","Redemption, Creation, Fall"], a:2},
+    {q:"God's command to Adam and Eve to fill the earth and have dominion over it is called the", o:["Creation Mandate","Great Commission","Scientific Method","Law of Thermodynamics"], a:0},
+    {q:"A cell that has a nucleus is called a(n)", o:["prokaryotic cell","unicellular cell","eukaryotic cell","autotrophic cell"], a:2},
+    {q:"Which of these is NOT one of the characteristics of life?", o:["intakes energy","reproduction by kind to kind","response to stimuli in the environment","can be seen without a microscope"], a:3},
+    {q:"An organism that has only one cell is", o:["multicellular","unicellular","eukaryotic","a heterotroph"], a:1},
+    {q:"Organisms maintain homeostasis by reacting to", o:["only internal stimuli","only external stimuli","internal and external stimuli","neither internal nor external stimuli"], a:2},
+    {q:"According to the 2nd Law of Thermodynamics, disorder naturally", o:["decreases","stays the same","increases","disappears"], a:2},
+    {q:"Similarities in living organisms point to", o:["random chance","a common designer","the 2nd Law of Thermodynamics","the taxonomic tree"], a:1},
+    {q:"Which of these is an example of qualitative data?", o:["The plant grew 4 centimeters in one week.","The leaves are dark green and waxy.","There are 12 seeds in the pod.","The water was 22 degrees Celsius."], a:1},
+    {q:"What is the first step of the scientific method?", o:["communicate","test","analyze and draw conclusions","observe"], a:3},
+    {q:"Which level of classification is the smallest, most specific group?", o:["domain","kingdom","genus","species"], a:3},
+    {q:"A scientific name is created by combining the names of an organism's", o:["domain and kingdom","family and order","genus and species","class and phylum"], a:2},
+    {q:"A lion gets its energy by eating other animals. A lion is a(n)", o:["autotroph","heterotroph","prokaryote","model"], a:1},
+    {q:"The dead leaf butterfly uses polyphenism for", o:["reproduction","digestion","camouflage","growth"], a:2}
+  ];
+  const FILL_BANK = ["variable","qualitative","nucleus","if","generalize","human","eukaryotic","scientific inquiry","create","control",
+                     "quantitative","prokaryotic","then","compare","intelligent","taxonomic","truth","animal","natural","classify"];
+  const FILL = [
+    {t:"A(n) {} is a factor that changes in a controlled experiment.", a:[["variable"]]},
+    {t:"{} data is data communicated using numbers.", a:[["quantitative"]]},
+    {t:"The {} is the structure that holds and protects the DNA in a eukaryotic cell.", a:[["nucleus"]]},
+    {t:"A(n) {} cell is a cell with no nucleus.", a:[["prokaryotic","prokaryote"]]},
+    {t:"Hypothesis sentence frame: \"{} (cause) is (responsible for effect), {} (the effect will be seen).\"", a:[["if"],["then"]]},
+    {t:"Classification helps us {} among groups of organisms to see how they are similar, and it helps us {} similar organisms to see where they are different.", a:[["generalize","generalise"],["compare"]]},
+    {t:"God values animal life, but God values {} life more.", a:[["human"]]},
+    {t:"Disorder naturally increases. Order only increases with {} effort.", a:[["intelligent"]]},
+    {t:"{} is using a variety of tools and skills to answer a question or solve a problem.", a:[["scientific inquiry","scientific enquiry"]]},
+    {t:"Naturalists use the {} tree for evolutionary support.", a:[["taxonomic","taxonomy"]]},
+    {t:"The image of God in us produces our desire to {}, love, and be loved.", a:[["create"]]},
+    {t:"Biblical principles for ethics: the image of God, the Creation Mandate, and considering God's whole {}.", a:[["truth"]]}
+  ];
+  const TF = [
+    {t:"A good hypothesis is descriptive, predictable, refutable, testable, and repeatable.", v:true,
+     why:"Those are the five marks of a good hypothesis."},
+    {t:"Christians believe the ultimate source of truth is naturalistic science.", v:false,
+     why:"Christians believe the ultimate source of truth is God's Word. Naturalists look to naturalistic science."},
+    {t:"The experimental group is the group in a controlled experiment that is exposed to the independent variable.", v:true,
+     why:"The experimental group is exposed to the independent variable. The control group is not."},
+    {t:"A theory is an idea that scientists use to describe what they observe.", v:false,
+     why:"A law describes what scientists observe. A theory explains the data they have collected."},
+    {t:"Naturalists believe the persistence of pain is a result of the Fall.", v:false,
+     why:"Naturalists believe pain is inevitable. Christians believe it is a result of the Fall."},
+    {t:"Altering the classification system to show evolutionary relationships violates God's law of nature that organisms reproduce after their kind.", v:true,
+     why:"Organisms reproduce after their kind, so an evolutionary tree goes against God's law of nature."},
+    {t:"Qualitative data is communicated using numbers.", v:false,
+     why:"Quantitative data uses numbers. Qualitative data uses words and descriptions."},
+    {t:"A controlled experiment examines the effect of several factors at a time.", v:false,
+     why:"A controlled experiment examines the effect of one factor at a time."}
+  ];
+  const CHART = {
+    example:["responsibility for earth","man (God's command)","man (need the earth to last)"],
+    rows:[
+      ["ultimate source of truth","God's Word","naturalistic science"],
+      ["source of life","God","natural means"],
+      ["persistence of pain","result of the Fall","inevitable"],
+      ["extent of death","eternal life in heaven or hell","end of existence"]
+    ],
+    pool:["natural means","God's Word","end of existence","result of the Fall","naturalistic science","eternal life in heaven or hell","God","inevitable"]
+  };
+  const LEVELS = ["domain","kingdom","phylum","class","order","family","genus","species"];
+  const LEVEL_BANK = ["family","domain","species","class","kingdom","genus","phylum","order"];
+  const MNEMONIC = "Dear King Philip Came Over For Good Soup";
+  const SHORT = [
+    {type:"multi", q:"Which of these are the five characteristics of life? Select all five.", n:5,
+     o:[["intakes energy",true],["moves from place to place",false],["organization via cells",true],["has a brain",false],["reproduction by kind to kind",true],["can be seen without a microscope",false],["demonstrates development",true],["is made mostly of water",false],["response to stimuli in the environment",true]]},
+    {type:"order", q:"Put the four steps of the scientific method in order.", steps:["observe","test","analyze and draw conclusions","communicate"], choices:["communicate","test","observe","analyze and draw conclusions"]},
+    {type:"multi", q:"Which of these are the five marks of God's purposeful design in living things? Select all five.", n:5,
+     o:[["growth",true],["movement",false],["organization",true],["color",false],["reproduction",true],["energy",true],["size",false],["response",true],["speed",false]]},
+    {type:"multi", q:"Which of these make humans a distinct creation, different from other living things? Select all that apply.", n:6,
+     o:[["made in the image of God",true],["have more cells than any other organism",false],["have higher value",true],["are the fastest creatures on earth",false],["have responsibilities",true],["punished for killing man",true],["do not need to intake energy",false],["have moral agency",true],["are the only organisms that reproduce",false],["have a plan for salvation",true]]},
+    {type:"mc", q:"Which statement correctly explains the difference between the control group and the experimental group?",
+     o:["The control group is exposed to the independent variable, and the experimental group is not.","The control group is not exposed to the independent variable, and the experimental group is.","Both groups are exposed to the independent variable.","Neither group is exposed to the independent variable."], a:1},
+    {type:"mc", q:"Why does changing the classification system to show an evolutionary relationship between organisms create a problem for a biblical worldview?",
+     o:["It violates God's law of nature that organisms reproduce after their kind.","It makes the scientific names too long to remember.","It removes the domain level from the classification system.","It proves that all organisms have a common designer."], a:0}
+  ];
+
+  const PARTS = [
+    {key:"A", title:"Vocabulary Matching", instr:"Pick the term that matches each definition. Each term is used only once.", max:12},
+    {key:"B", title:"Multiple Choice", instr:"Choose the best answer.", max:15},
+    {key:"C", title:"Fill in the Blank", instr:"Pick the word from the word bank that completes each sentence. One point for each blank. Some words in the bank are not used.", max:14},
+    {key:"D", title:"True or False", instr:"Choose True or False for each statement.", max:8},
+    {key:"E", title:"Worldview Chart", instr:"Complete the chart comparing how Christians and naturalists view life. Pick each answer from the list. The first row is done for you.", max:8},
+    {key:"F", title:"Levels of Classification", instr:"Put the eight levels in order from the largest group to the smallest group. Pick each level from the list.", max:8},
+    {key:"G", title:"Short Answer", instr:"Three points each. Select all that apply, put steps in order, or choose the best answer.", max:18}
+  ];
+  const TOTAL_POINTS = 83, TOTAL_ITEMS = 62;
+  const STORE_KEY = "ls-ch1-quiz-v2", BEST_KEY = "ls-ch1-best-v1", SOUND_KEY = "ls-ch1-sound";
+
+  /* ============================== HELPERS ============================== */
+  const $ = (s, el) => (el || document).querySelector(s);
+  const $$ = (s, el) => Array.from((el || document).querySelectorAll(s));
+  const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function norm(s){
+    return String(s || "").toLowerCase().replace(/[’‘`]/g, "'").replace(/[^a-z0-9' ]+/g, " ")
+      .replace(/\s+/g, " ").trim().replace(/^(a|an|the) /, "");
+  }
+  function lev(a, b){
+    const m = a.length, n = b.length;
+    if (!m) return n; if (!n) return m;
+    let prev = new Array(n + 1), cur = new Array(n + 1);
+    for (let j = 0; j <= n; j++) prev[j] = j;
+    for (let i = 1; i <= m; i++){
+      cur[0] = i;
+      for (let j = 1; j <= n; j++){
+        const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + cost);
+      }
+      [prev, cur] = [cur, prev];
+    }
+    return prev[n];
+  }
+  // returns "exact", "close" (a small typo), or false
+  function matchText(input, accepted){
+    const v = norm(input); if (!v) return false;
+    for (const c of accepted){ if (v === norm(c)) return "exact"; }
+    for (const c of accepted){
+      const nc = norm(c); const tol = nc.length >= 9 ? 2 : (nc.length >= 5 ? 1 : 0);
+      if (tol && lev(v, nc) <= tol) return "close";
+    }
+    return false;
+  }
+  function save(obj, key){ try { localStorage.setItem(key, JSON.stringify(obj)); } catch (e) {} }
+  function load(key){ try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : null; } catch (e) { return null; } }
+
+  const ICON_OK = '<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="var(--good)"/><path d="M5.5 10.5l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const ICON_X = '<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="var(--bad)"/><path d="M6.5 6.5l7 7M13.5 6.5l-7 7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>';
+  const ICON_WARN = '<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="var(--warn)"/><path d="M10 5.5v5.5M10 14.2v.3" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>';
+
+  /* ============================== NUMBERING ============================== */
+  const NUM = {};
+  (function(){
+    let n = 1;
+    NUM.match = MATCH.map(() => n++);
+    NUM.mc = MC.map(() => n++);
+    NUM.fill = FILL.map(() => n++);
+    NUM.tf = TF.map(() => n++);
+    NUM.chart = CHART.rows.map(() => [n++, n++]);
+    NUM.cls = n++;
+    NUM.short = SHORT.map(() => n++);
+  })();
+
+  /* ============================== RENDER ============================== */
+  function optionRow(type, name, value, text, letter){
+    return '<label class="opt"><input type="' + type + '" name="' + name + '" value="' + value + '">' +
+      (letter ? '<span class="letter">' + letter + '.</span>' : '') + '<span class="text">' + esc(text) + '</span></label>';
+  }
+  function partHead(p){
+    return '<section class="part" id="part-' + p.key + '"><div class="part-head"><h2>Part ' + p.key + '. ' + p.title +
+      '</h2><span class="pts">' + p.max + ' points</span></div><p class="instr">' + p.instr + '</p>';
+  }
+  function itemOpen(n){ return '<div class="item" data-item="' + n + '" id="q' + n + '">'; }
+
+  function render(){
+    let h = "";
+    // Part A
+    h += partHead(PARTS[0]);
+    h += '<div class="bank" aria-label="Word bank">' + TERMS.map((t, i) => '<span><b>' + LETTERS[i] + '</b>' + t + '</span>').join("") + '</div>';
+    MATCH.forEach((m, i) => {
+      const n = NUM.match[i];
+      h += itemOpen(n) + '<div class="qhead match-row"><span class="num">' + n + '</span><p class="stem">' + esc(m[0]) + '</p>' +
+        '<select name="m' + n + '" aria-label="Term for question ' + n + '"><option value="">Choose a term</option>' +
+        TERMS.map((t, k) => '<option value="' + LETTERS[k] + '">' + LETTERS[k] + '. ' + t + '</option>').join("") + '</select></div></div>';
+    });
+    h += '</section>';
+    // Part B
+    h += partHead(PARTS[1]);
+    MC.forEach((q, i) => {
+      const n = NUM.mc[i];
+      h += itemOpen(n) + '<div class="qhead"><span class="num">' + n + '</span><p class="stem">' + esc(q.q) + '</p></div><div class="opts">' +
+        q.o.map((o, k) => optionRow("radio", "mc" + n, k, o, "abcd"[k])).join("") + '</div></div>';
+    });
+    h += '</section>';
+    // Part C
+    h += partHead(PARTS[2]);
+    h += '<div class="bank words" aria-label="Word bank">' + FILL_BANK.map(w => '<span>' + esc(w) + '</span>').join("") + '</div>';
+    const wordSel = (name, label) => '<select class="wsel" name="' + name + '" aria-label="' + label + '"><option value="">word bank</option>' +
+      FILL_BANK.map(w => '<option value="' + esc(w) + '">' + esc(w) + '</option>').join("") + '</select>';
+    FILL.forEach((f, i) => {
+      const n = NUM.fill[i];
+      const parts = f.t.split("{}");
+      let s = "";
+      parts.forEach((p, k) => {
+        s += esc(p);
+        if (k < parts.length - 1) s += wordSel("f" + n + "_" + k, "Blank " + (k + 1) + " of question " + n);
+      });
+      h += itemOpen(n) + '<div class="qhead"><span class="num">' + n + '</span><p class="stem">' + s + '</p></div></div>';
+    });
+    h += '</section>';
+    // Part D
+    h += partHead(PARTS[3]);
+    TF.forEach((t, i) => {
+      const n = NUM.tf[i];
+      h += itemOpen(n) + '<div class="qhead"><span class="num">' + n + '</span><p class="stem">' + esc(t.t) + '</p></div>' +
+        '<div class="seg" role="radiogroup" aria-label="True or false, question ' + n + '">' +
+        '<label><input type="radio" name="tf' + n + '" value="T"><span>True</span></label>' +
+        '<label><input type="radio" name="tf' + n + '" value="F"><span>False</span></label></div></div>';
+    });
+    h += '</section>';
+    // Part E
+    h += partHead(PARTS[4]);
+    const sel = (name, label) => '<select name="' + name + '" aria-label="' + label + '"><option value="">Choose</option>' +
+      CHART.pool.map(p => '<option value="' + esc(p) + '">' + esc(p) + '</option>').join("") + '</select>';
+    h += itemOpen("chart") + '<div class="chart">' +
+      '<div class="chart-row"><span></span><span>Christians</span><span>Naturalists</span></div>' +
+      '<div class="chart-row example"><span class="rlabel">' + CHART.example[0] + '</span><span class="given"><span class="cap">Christians</span>' + esc(CHART.example[1]) + '</span><span class="given"><span class="cap">Naturalists</span>' + esc(CHART.example[2]) + '</span></div>';
+    CHART.rows.forEach((r, i) => {
+      const [a, b] = NUM.chart[i];
+      h += '<div class="chart-row"><span class="rlabel">' + r[0] + '</span>' +
+        '<div class="cell" id="q' + a + '"><span class="cap">Christians</span><span class="cellrow"><span class="num">' + a + '</span>' + sel("ch" + a, "Christians, " + r[0]) + '</span></div>' +
+        '<div class="cell" id="q' + b + '"><span class="cap">Naturalists</span><span class="cellrow"><span class="num">' + b + '</span>' + sel("ch" + b, "Naturalists, " + r[0]) + '</span></div></div>';
+    });
+    h += '</div></div></section>';
+    // Part F
+    h += partHead(PARTS[5]);
+    h += itemOpen(NUM.cls) + '<div class="qhead"><span class="num">' + NUM.cls + '</span><p class="stem">Put the eight levels of classification in order, largest to smallest.</p></div>' +
+      '<div class="bank words" aria-label="Word bank">' + LEVEL_BANK.map(w => '<span>' + w + '</span>').join("") + '</div><div class="levels">' +
+      LEVELS.map((l, k) => '<label><span class="num">' + (k + 1) + '</span><select name="cl' + k + '" aria-label="Level ' + (k + 1) + '"><option value="">Choose</option>' +
+        LEVEL_BANK.map(w => '<option value="' + w + '">' + w + '</option>').join("") + '</select></label>').join("") +
+      '</div></div></section>';
+    // Part G
+    h += partHead(PARTS[6]);
+    SHORT.forEach((s, i) => {
+      const n = NUM.short[i];
+      h += itemOpen(n) + '<div class="qhead"><span class="num">' + n + '</span><p class="stem">' + esc(s.q) + '</p></div>';
+      if (s.type === "multi"){
+        h += '<div class="opts">' + s.o.map((o, k) => optionRow("checkbox", "s" + n, k, o[0])).join("") + '</div>';
+      } else if (s.type === "mc"){
+        h += '<div class="opts">' + s.o.map((o, k) => optionRow("radio", "s" + n, k, o, "abcd"[k])).join("") + '</div>';
+      } else {
+        h += '<div class="order">' + s.steps.map((st, k) => '<label><span class="step">Step ' + (k + 1) + '</span><select name="s' + n + '_' + k + '"><option value="">Choose</option>' +
+          s.choices.map(c => '<option value="' + esc(c) + '">' + esc(c) + '</option>').join("") + '</select></label>').join("") + '</div>';
+      }
+      h += '</div>';
+    });
+    h += '</section>';
+    $("#test").innerHTML = h;
+  }
+
+  /* ============================== STATE ============================== */
+  const test = $("#test");
+  function collect(){
+    const a = {};
+    $$("input, select", test).forEach(el => {
+      if (el.type === "radio"){ if (el.checked) a[el.name] = el.value; }
+      else if (el.type === "checkbox"){ if (el.checked){ (a[el.name] = a[el.name] || []).push(el.value); } }
+      else { if (el.value !== "") a[el.name] = el.value; }
+    });
+    return a;
+  }
+  function restore(a){
+    if (!a) return;
+    $$("input, select", test).forEach(el => {
+      if (el.type === "radio") el.checked = a[el.name] === el.value;
+      else if (el.type === "checkbox") el.checked = Array.isArray(a[el.name]) && a[el.name].includes(el.value);
+      else if (a[el.name] != null) el.value = a[el.name];
+    });
+    refreshUI();
+  }
+  function itemAnswered(n, a){
+    if (NUM.match.includes(n)) return !!a["m" + n];
+    if (NUM.mc.includes(n)) return a["mc" + n] != null;
+    const fi = NUM.fill.indexOf(n);
+    if (fi >= 0) return FILL[fi].a.every((_, k) => !!a["f" + n + "_" + k]);
+    if (NUM.tf.includes(n)) return !!a["tf" + n];
+    for (const pair of NUM.chart){ if (pair.includes(n)) return !!a["ch" + n]; }
+    if (n === NUM.cls) return LEVELS.every((_, k) => !!a["cl" + k]);
+    const si = NUM.short.indexOf(n);
+    if (si >= 0){
+      const s = SHORT[si];
+      if (s.type === "order") return s.steps.every((_, k) => !!a["s" + n + "_" + k]);
+      if (s.type === "multi") return Array.isArray(a["s" + n]) && a["s" + n].length > 0;
+      return a["s" + n] != null;
+    }
+    return false;
+  }
+  function allNums(){
+    const out = [];
+    [NUM.match, NUM.mc, NUM.fill, NUM.tf].forEach(arr => out.push(...arr));
+    NUM.chart.forEach(p => out.push(...p));
+    out.push(NUM.cls); out.push(...NUM.short);
+    return out;
+  }
+  const ALL = allNums();
+  function refreshUI(){
+    const a = collect();
+    save(a, STORE_KEY);
+    const done = ALL.filter(n => itemAnswered(n, a)).length;
+    $("#prog-text").textContent = done + " of " + TOTAL_ITEMS;
+    $("#prog-fill").style.width = (100 * done / TOTAL_ITEMS) + "%";
+    $$(".opt", test).forEach(l => { const i = l.querySelector("input"); l.classList.toggle("selected", !!(i && i.checked)); });
+    return a;
+  }
+
+  /* ============================== GRADING ============================== */
+  function grade(){
+    const a = collect();
+    const res = []; // {n, part, got, max, state, note, yours}
+    const push = r => res.push(r);
+    MATCH.forEach((m, i) => {
+      const n = NUM.match[i], want = LETTERS[TERMS.indexOf(m[1])], got = a["m" + n] || "";
+      push({n, part:"A", max:1, got: got === want ? 1 : 0, state: got === want ? "right" : "wrong",
+        note: got === want ? "" : "Correct answer: <b>" + want + ". " + m[1] + "</b>" + (got ? " (you picked " + got + ". " + TERMS[LETTERS.indexOf(got)] + ")" : " (no answer)")});
+    });
+    MC.forEach((q, i) => {
+      const n = NUM.mc[i], got = a["mc" + n], ok = got != null && Number(got) === q.a;
+      push({n, part:"B", max:1, got: ok ? 1 : 0, state: ok ? "right" : "wrong", pick: got,
+        note: ok ? "" : "Correct answer: <b>" + "abcd"[q.a] + ". " + esc(q.o[q.a]) + "</b>" + (got == null ? " (no answer)" : "")});
+    });
+    FILL.forEach((f, i) => {
+      const n = NUM.fill[i]; let pts = 0; const notes = [];
+      f.a.forEach((acc, k) => {
+        const v = a["f" + n + "_" + k] || "";
+        if (matchText(v, acc) === "exact") pts++;
+        else notes.push((f.a.length > 1 ? "Blank " + (k + 1) + ": " : "") + "<b>" + esc(acc[0]) + "</b>" + (v ? " (you picked \"" + esc(v) + "\")" : " (no answer)"));
+      });
+      const state = pts === f.a.length ? "right" : (pts > 0 ? "partial" : "wrong");
+      push({n, part:"C", max:f.a.length, got:pts, state, note: notes.join("<br>")});
+    });
+    TF.forEach((t, i) => {
+      const n = NUM.tf[i], got = a["tf" + n] || "", want = t.v ? "T" : "F", ok = got === want;
+      const note = ok ? "" : "This one is <b>" + (t.v ? "true" : "false") + "</b>. " + esc(t.why) + (got ? "" : " (no answer)");
+      push({n, part:"D", max:1, got: ok ? 1 : 0, state: ok ? "right" : "wrong", note});
+    });
+    CHART.rows.forEach((r, i) => {
+      const [na, nb] = NUM.chart[i];
+      [[na, r[1]], [nb, r[2]]].forEach(([n, want]) => {
+        const got = a["ch" + n] || ""; const ok = got === want;
+        push({n, part:"E", max:1, got: ok ? 1 : 0, state: ok ? "right" : "wrong", note: ok ? "" : "Correct answer: <b>" + esc(want) + "</b>" + (got ? "" : " (no answer)")});
+      });
+    });
+    {
+      const n = NUM.cls; let pts = 0; const notes = [];
+      LEVELS.forEach((l, k) => {
+        const v = a["cl" + k] || "";
+        if (v === l) pts++;
+        else notes.push("Level " + (k + 1) + " should be <b>" + l + "</b>" + (v ? " (you picked " + esc(v) + ")" : " (blank)"));
+      });
+      const state = pts === 8 ? "right" : (pts > 0 ? "partial" : "wrong");
+      if (pts < 8) notes.push("Memory trick: <i>" + MNEMONIC + "</i>.");
+      push({n, part:"F", max:8, got:pts, state, note: notes.join("<br>")});
+    }
+    SHORT.forEach((s, i) => {
+      const n = NUM.short[i]; let got = 0, state = "wrong", note = "", pick = null;
+      if (s.type === "multi"){
+        const chosen = (a["s" + n] || []).map(Number);
+        const hits = chosen.filter(k => s.o[k][1]).length, wrong = chosen.length - hits;
+        got = Math.round(3 * Math.max(0, hits - wrong) / s.n);
+        const correctList = s.o.filter(o => o[1]).map(o => o[0]).join(", ");
+        if (got === 3) state = "right";
+        else { state = got > 0 ? "partial" : "wrong"; note = "You got " + hits + " of " + s.n + (wrong ? " and picked " + wrong + " that do not belong" : "") + ". The full list: <b>" + esc(correctList) + "</b>."; }
+      } else if (s.type === "order"){
+        let c = 0;
+        s.steps.forEach((st, k) => { if ((a["s" + n + "_" + k] || "") === st) c++; });
+        got = Math.round(3 * c / s.steps.length);
+        if (c === s.steps.length) state = "right";
+        else { state = got > 0 ? "partial" : "wrong"; note = "The order is <b>" + s.steps.map((st, k) => (k + 1) + ") " + st).join(", ") + "</b>."; }
+      } else {
+        pick = a["s" + n];
+        const ok = pick != null && Number(pick) === s.a;
+        got = ok ? 3 : 0; state = ok ? "right" : "wrong";
+        if (!ok) note = "Correct answer: <b>" + "abcd"[s.a] + ". " + esc(s.o[s.a]) + "</b>" + (pick == null ? " (no answer)" : "");
+      }
+      push({n, part:"G", max:3, got, state, note, pick});
+    });
+    return res;
+  }
+
+  function markItems(res){
+    document.body.classList.add("graded");
+    $$("input, select", test).forEach(el => el.disabled = true);
+    res.forEach(r => {
+      const el = $("#q" + r.n); if (!el) return;
+      el.classList.add(r.state);
+      // highlight MC answers
+      if (r.part === "B" || (r.part === "G" && r.pick !== undefined && el.querySelector('input[type="radio"]'))){
+        const want = r.part === "B" ? MC[NUM.mc.indexOf(r.n)].a : SHORT[NUM.short.indexOf(r.n)].a;
+        $$(".opt", el).forEach(l => {
+          const i = l.querySelector("input");
+          if (Number(i.value) === want) l.classList.add("answer");
+          else if (i.checked) l.classList.add("picked-wrong");
+        });
+      }
+      if (r.part === "G" && SHORT[NUM.short.indexOf(r.n)].type === "multi"){
+        const s = SHORT[NUM.short.indexOf(r.n)];
+        $$(".opt", el).forEach(l => {
+          const i = l.querySelector("input");
+          if (s.o[Number(i.value)][1]) l.classList.add("answer");
+          else if (i.checked) l.classList.add("picked-wrong");
+        });
+      }
+      const icon = r.state === "right" ? ICON_OK : (r.state === "partial" ? ICON_WARN : ICON_X);
+      const label = r.state === "right" ? "Correct. " : (r.state === "partial" ? "Partly right. " : "");
+      const ptsTxt = '<span class="mono">' + r.got + "/" + r.max + "</span> ";
+      const mark = document.createElement("div");
+      mark.className = "mark";
+      mark.innerHTML = icon + "<div>" + ptsTxt + label + (r.note || "") + "</div>";
+      el.appendChild(mark);
+    });
+  }
+
+  function letterFor(pct){ return pct >= 90 ? "A" : pct >= 80 ? "B" : pct >= 70 ? "C" : pct >= 60 ? "D" : "F"; }
+  function messageFor(letter){
+    return {
+      A:"That is an A. Way to go, Max.",
+      B:"So close. A few more right and that is an A. Look at the ones marked below and run it again.",
+      C:"Solid start. Read the notes on the questions you missed, then try again.",
+      D:"Not there yet. Go back through the guided notes, then take it again.",
+      F:"Rough one. Read the guided notes again from the top, then come back and retake it."
+    }[letter];
+  }
+
+  function showResults(res){
+    const got = res.reduce((s, r) => s + r.got, 0);
+    const pct = Math.round(100 * got / TOTAL_POINTS);
+    const letter = letterFor(pct);
+    const byPart = PARTS.map(p => {
+      const rows = res.filter(r => r.part === p.key);
+      return {p, got: rows.reduce((s, r) => s + r.got, 0)};
+    });
+    const missed = res.filter(r => r.state !== "right");
+    let best = load(BEST_KEY);
+    if (!best || pct > best.pct){ best = {pct, letter, when: new Date().toISOString()}; save(best, BEST_KEY); }
+    $("#best-line").hidden = false; $("#best-val").textContent = best.pct + "% (" + best.letter + ")";
+
+    let h = '<div class="card"><div class="score-row"><div class="stamp" aria-hidden="true">' + letter + '</div><div class="score-text">' +
+      '<div class="pct">' + pct + '<small>%</small></div><div class="pts">' + got + ' of ' + TOTAL_POINTS + ' points, grade ' + letter + '</div>' +
+      '<p class="msg">' + messageFor(letter) + '</p><div class="best">Best so far: ' + best.pct + '% (' + best.letter + ')</div></div></div>';
+    h += '<table class="breakdown">' + byPart.map(b => {
+      const r = b.got / b.p.max; const cls = r >= .9 ? "" : (r >= .7 ? "mid" : "low");
+      return '<tr><td class="bname">Part ' + b.p.key + '. ' + b.p.title + '</td><td class="bbar"><div class="bt"><i class="' + cls + '" style="width:' + Math.round(100 * r) + '%"></i></div></td><td class="bnum">' + b.got + ' / ' + b.p.max + '</td></tr>';
+    }).join("") + '</table>';
+    if (missed.length){
+      h += '<div class="missed"><h3>Questions to look at again</h3><ul>' + missed.map(r => '<a class="' + r.state + '" href="#q' + r.n + '">' + r.n + '</a>').join("") + '</ul>' +
+        '<p>Tap a number to jump to it. Red is wrong, amber is partly right.</p></div>';
+    } else {
+      h += '<div class="missed"><h3>Perfect score</h3><p>Every single one. Nothing to review.</p></div>';
+    }
+    h += '<div class="actions"><button class="btn" id="btn-review" type="button">Show me what I missed</button><button class="btn ghost" id="btn-retry" type="button">Try again</button></div></div>';
+    const box = $("#results"); box.innerHTML = h; box.hidden = false;
+    $("#btn-review").addEventListener("click", () => {
+      const first = missed[0]; const target = first ? $("#q" + first.n) : $("#test");
+      target.scrollIntoView({behavior: reduced ? "auto" : "smooth", block:"start"});
+    });
+    $("#btn-retry").addEventListener("click", retry);
+    $("#btn-check").disabled = true;
+    return {pct, letter, got};
+  }
+
+  function retry(){
+    document.body.classList.remove("graded");
+    $$(".mark", test).forEach(m => m.remove());
+    $$(".item, .cell", test).forEach(el => el.classList.remove("right", "wrong", "partial"));
+    $$(".opt", test).forEach(l => l.classList.remove("answer", "picked-wrong"));
+    $$("input, select", test).forEach(el => {
+      el.disabled = false;
+      if (el.type === "radio" || el.type === "checkbox") el.checked = false; else el.value = "";
+    });
+    $("#results").hidden = true; $("#results").innerHTML = "";
+    $("#btn-check").disabled = false;
+    refreshUI();
+    window.scrollTo({top: 0, behavior: reduced ? "auto" : "smooth"});
+  }
+
+  /* ============================== SOUND ============================== */
+  const Sound = (function(){
+    let ctx = null, master = null;
+    function ensure(){
+      try {
+        if (!ctx){
+          const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null;
+          ctx = new AC();
+          master = ctx.createGain(); master.gain.value = 0.9;
+          const comp = ctx.createDynamicsCompressor(); comp.threshold.value = -12; comp.ratio.value = 6;
+          master.connect(comp); comp.connect(ctx.destination);
+        }
+        if (ctx.state === "suspended") ctx.resume();
+        return ctx;
+      } catch (e) { return null; }
+    }
+    function noise(dur){
+      const buf = ctx.createBuffer(1, Math.ceil(ctx.sampleRate * dur), ctx.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+      const src = ctx.createBufferSource(); src.buffer = buf; return src;
+    }
+    function env(g, t, a, peak, hold, rel){
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(peak, t + a);
+      g.gain.setValueAtTime(peak, t + a + hold);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + a + hold + rel);
+    }
+    function shaper(amount){
+      const ws = ctx.createWaveShaper(); const n = 1024, curve = new Float32Array(n);
+      for (let i = 0; i < n; i++){ const x = i * 2 / n - 1; curve[i] = (1 + amount) * x / (1 + amount * Math.abs(x)); }
+      ws.curve = curve; return ws;
+    }
+
+    // Sad trombone: wah wah wah waaah
+    function sadTrombone(t0){
+      const notes = [[233.08, .42], [220.00, .42], [207.65, .42], [196.00, 1.5]];
+      let t = t0;
+      notes.forEach((nt, i) => {
+        const f = nt[0], d = nt[1], last = i === notes.length - 1;
+        const o1 = ctx.createOscillator(), o2 = ctx.createOscillator();
+        o1.type = "sawtooth"; o2.type = "square";
+        const og2 = ctx.createGain(); og2.gain.value = .25;
+        const filt = ctx.createBiquadFilter(); filt.type = "lowpass"; filt.Q.value = 5;
+        const g = ctx.createGain();
+        [o1, o2].forEach(o => {
+          o.frequency.setValueAtTime(f * 1.05, t);
+          o.frequency.exponentialRampToValueAtTime(f, t + .1);
+          if (last){ o.frequency.setValueAtTime(f, t + .55); o.frequency.exponentialRampToValueAtTime(f * .82, t + d); }
+        });
+        if (last){
+          const vib = ctx.createOscillator(); vib.frequency.value = 5.5;
+          const vg = ctx.createGain(); vg.gain.value = 4; vib.connect(vg); vg.connect(o1.frequency); vg.connect(o2.frequency);
+          vib.start(t); vib.stop(t + d + .1);
+        }
+        filt.frequency.setValueAtTime(350, t);
+        filt.frequency.exponentialRampToValueAtTime(1900, t + .09);
+        filt.frequency.exponentialRampToValueAtTime(last ? 380 : 600, t + d);
+        env(g, t, .04, .45, Math.max(0, d - .16), .12);
+        o1.connect(filt); o2.connect(og2); og2.connect(filt); filt.connect(g); g.connect(master);
+        o1.start(t); o2.start(t); o1.stop(t + d + .15); o2.stop(t + d + .15);
+        t += d + .07;
+      });
+      return t - t0;
+    }
+
+    // A huge fart. Low sawtooth with wobble, sputter, and grit.
+    function fart(t0, dur){
+      dur = dur || 2.2;
+      const o = ctx.createOscillator(); o.type = "sawtooth";
+      o.frequency.setValueAtTime(92, t0);
+      o.frequency.exponentialRampToValueAtTime(58, t0 + dur * .8);
+      o.frequency.exponentialRampToValueAtTime(70, t0 + dur);
+      const wob = ctx.createOscillator(); wob.type = "sine";
+      wob.frequency.setValueAtTime(30, t0); wob.frequency.linearRampToValueAtTime(12, t0 + dur);
+      const wg = ctx.createGain(); wg.gain.value = 38; wob.connect(wg); wg.connect(o.frequency);
+      const nz = noise(dur + .2); const nf = ctx.createBiquadFilter(); nf.type = "lowpass"; nf.frequency.value = 520;
+      const ng = ctx.createGain(); ng.gain.value = .45;
+      const sput = ctx.createOscillator(); sput.type = "square";
+      sput.frequency.setValueAtTime(19, t0); sput.frequency.linearRampToValueAtTime(8, t0 + dur);
+      const amp = ctx.createGain(); amp.gain.value = .6;
+      const sg = ctx.createGain(); sg.gain.value = .45; sput.connect(sg); sg.connect(amp.gain);
+      const filt = ctx.createBiquadFilter(); filt.type = "lowpass"; filt.Q.value = 9;
+      filt.frequency.setValueAtTime(340, t0); filt.frequency.exponentialRampToValueAtTime(150, t0 + dur);
+      const grit = shaper(6);
+      const g = ctx.createGain();
+      env(g, t0, .03, .9, Math.max(0, dur - .5), .45);
+      o.connect(filt); nz.connect(nf); nf.connect(ng); ng.connect(filt);
+      filt.connect(grit); grit.connect(amp); amp.connect(g); g.connect(master);
+      [o, wob, nz, sput].forEach(x => { x.start(t0); x.stop(t0 + dur + .3); });
+      return dur;
+    }
+
+    // Crowd cheer: swelling filtered noise plus a bunch of whoops.
+    function cheer(t0, dur){
+      dur = dur || 5;
+      const nz = noise(dur + 1);
+      const bp = ctx.createBiquadFilter(); bp.type = "bandpass"; bp.frequency.value = 1100; bp.Q.value = .6;
+      const bp2 = ctx.createBiquadFilter(); bp2.type = "bandpass"; bp2.frequency.value = 420; bp2.Q.value = .8;
+      const g = ctx.createGain(), g2 = ctx.createGain();
+      g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(.35, t0 + .5);
+      g.gain.setValueAtTime(.35, t0 + dur - 1.6); g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+      g2.gain.setValueAtTime(0.0001, t0); g2.gain.exponentialRampToValueAtTime(.25, t0 + .6);
+      g2.gain.setValueAtTime(.25, t0 + dur - 1.6); g2.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+      nz.connect(bp); bp.connect(g); g.connect(master); nz.connect(bp2); bp2.connect(g2); g2.connect(master);
+      nz.start(t0); nz.stop(t0 + dur + 1);
+      for (let i = 0; i < 16; i++){
+        const t = t0 + .2 + Math.random() * (dur - 2);
+        const o = ctx.createOscillator(); o.type = "triangle";
+        const f0 = 300 + Math.random() * 250;
+        o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(f0 * 2.1, t + .22); o.frequency.exponentialRampToValueAtTime(f0 * 1.6, t + .5);
+        const og = ctx.createGain(); env(og, t, .05, .08, .2, .3);
+        o.connect(og); og.connect(master); o.start(t); o.stop(t + .7);
+      }
+    }
+    // Brass fanfare: C5 E5 G5 C6, then a held chord.
+    function fanfare(t0){
+      const seq = [[523.25, 0, .18], [659.25, .18, .18], [783.99, .36, .18], [1046.5, .54, .9]];
+      const chord = [[523.25, .62, .85], [659.25, .62, .85], [783.99, .62, .85]];
+      seq.concat(chord).forEach(([f, off, d]) => {
+        const t = t0 + off;
+        const o1 = ctx.createOscillator(), o2 = ctx.createOscillator();
+        o1.type = "sawtooth"; o2.type = "sawtooth"; o1.frequency.value = f; o2.frequency.value = f * 1.004;
+        const filt = ctx.createBiquadFilter(); filt.type = "lowpass"; filt.frequency.value = 2600; filt.Q.value = 1;
+        const g = ctx.createGain(); env(g, t, .02, .16, Math.max(0, d - .1), .18);
+        o1.connect(filt); o2.connect(filt); filt.connect(g); g.connect(master);
+        o1.start(t); o2.start(t); o1.stop(t + d + .3); o2.stop(t + d + .3);
+      });
+    }
+    function pop(){
+      if (!ctx) return;
+      const t = ctx.currentTime;
+      const nz = noise(.25); const f = ctx.createBiquadFilter(); f.type = "lowpass"; f.frequency.value = 900 + Math.random() * 600;
+      const g = ctx.createGain(); env(g, t, .005, .35, .02, .2);
+      nz.connect(f); f.connect(g); g.connect(master); nz.start(t); nz.stop(t + .3);
+      const o = ctx.createOscillator(); o.type = "sine"; o.frequency.setValueAtTime(140, t); o.frequency.exponentialRampToValueAtTime(50, t + .25);
+      const og = ctx.createGain(); env(og, t, .005, .4, .02, .22); o.connect(og); og.connect(master); o.start(t); o.stop(t + .3);
+    }
+    function speak(text, pitch, rate, delayMs){
+      try {
+        if (!("speechSynthesis" in window)) return;
+        setTimeout(() => {
+          const u = new SpeechSynthesisUtterance(text); u.pitch = pitch; u.rate = rate; u.volume = 1;
+          window.speechSynthesis.speak(u);
+        }, delayMs || 0);
+      } catch (e) {}
+    }
+    function unlockSpeech(){
+      try { if ("speechSynthesis" in window){ window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance(" ")); } } catch (e) {}
+    }
+    return {
+      ensure, unlockSpeech, pop, speak,
+      now(){ return ctx ? ctx.currentTime : 0; },
+      playCelebration(){ if (!ensure()) return; const t = ctx.currentTime + .05; fanfare(t); cheer(t + .3, 5.5); },
+      playWomp(){ if (!ensure()) return; const t = ctx.currentTime + .05; return sadTrombone(t); },
+      playFart(){ if (!ensure()) return 0; return fart(ctx.currentTime + .02); }
+    };
+  })();
+
+  let soundOn = (function(){ const v = load(SOUND_KEY); return v === null ? true : !!v; })();
+  function paintSoundBtn(){ const b = $("#btn-sound"); b.textContent = soundOn ? "Sound on" : "Sound off"; b.setAttribute("aria-pressed", soundOn ? "true" : "false"); }
+  $("#btn-sound").addEventListener("click", () => { soundOn = !soundOn; save(soundOn, SOUND_KEY); paintSoundBtn(); if (soundOn) Sound.ensure(); });
+  paintSoundBtn();
+
+  /* ============================== FIREWORKS ============================== */
+  function fireworks(canvas, durationMs, onPop){
+    const c = canvas.getContext("2d");
+    let W = 0, H = 0, dpr = Math.min(2, window.devicePixelRatio || 1);
+    function resize(){ W = canvas.clientWidth; H = canvas.clientHeight; canvas.width = W * dpr; canvas.height = H * dpr; c.setTransform(dpr, 0, 0, dpr, 0, 0); }
+    resize(); window.addEventListener("resize", resize);
+    const rockets = [], parts = [];
+    const start = performance.now(); let last = start, nextLaunch = start + 150, raf = 0, stopped = false;
+    const maxParts = reduced ? 45 : 110;
+    function launch(){
+      rockets.push({x: W * (.12 + Math.random() * .76), y: H + 4, vx: (Math.random() - .5) * 1.4, vy: -(H * .0115 + Math.random() * H * .004),
+        hue: Math.random() * 360, target: H * (.12 + Math.random() * .38)});
+    }
+    function explode(r){
+      const n = Math.round(maxParts * (.7 + Math.random() * .5));
+      const ring = Math.random() < .3;
+      for (let i = 0; i < n; i++){
+        const a = ring ? (i / n) * Math.PI * 2 : Math.random() * Math.PI * 2;
+        const s = ring ? 4.2 + Math.random() * .4 : 1 + Math.random() * 5.2;
+        parts.push({x: r.x, y: r.y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life: 1, decay: .010 + Math.random() * .012,
+          hue: r.hue + (Math.random() * 40 - 20), size: 1.6 + Math.random() * 2});
+      }
+      if (onPop) onPop();
+    }
+    function frame(now){
+      if (stopped) return;
+      const dt = Math.min(2.5, (now - last) / 16.7); last = now;
+      c.globalCompositeOperation = "source-over";
+      c.fillStyle = "rgba(9,12,22,0.24)"; c.fillRect(0, 0, W, H);
+      c.globalCompositeOperation = "lighter";
+      if (now - start < durationMs - 1800 && now > nextLaunch){ launch(); if (Math.random() < .35) launch(); nextLaunch = now + 260 + Math.random() * 480; }
+      for (let i = rockets.length - 1; i >= 0; i--){
+        const r = rockets[i];
+        r.x += r.vx * dt; r.y += r.vy * dt; r.vy += .06 * dt;
+        c.fillStyle = "hsla(" + r.hue + ",100%,80%,0.9)"; c.beginPath(); c.arc(r.x, r.y, 2.2, 0, Math.PI * 2); c.fill();
+        if (r.y <= r.target || r.vy >= -.5){ explode(r); rockets.splice(i, 1); }
+      }
+      for (let i = parts.length - 1; i >= 0; i--){
+        const p = parts[i];
+        p.vx *= Math.pow(.982, dt); p.vy = p.vy * Math.pow(.982, dt) + .05 * dt;
+        p.x += p.vx * dt; p.y += p.vy * dt; p.life -= p.decay * dt;
+        if (p.life <= 0){ parts.splice(i, 1); continue; }
+        c.fillStyle = "hsla(" + p.hue + ",100%," + (55 + 30 * p.life) + "%," + p.life + ")";
+        c.beginPath(); c.arc(p.x, p.y, p.size * (0.4 + .6 * p.life), 0, Math.PI * 2); c.fill();
+      }
+      if (now - start < durationMs || parts.length || rockets.length) raf = requestAnimationFrame(frame);
+    }
+    c.fillStyle = "#090C16"; c.fillRect(0, 0, W, H);
+    raf = requestAnimationFrame(frame);
+    return function stop(){ stopped = true; cancelAnimationFrame(raf); window.removeEventListener("resize", resize); };
+  }
+
+  /* ============================== CELEBRATIONS ============================== */
+  function celebrateA(score){
+    const ov = $("#ov-a"); ov.hidden = false; document.body.style.overflow = "hidden";
+    $("#a-line2").textContent = score.pct + "% (" + score.got + " of " + TOTAL_POINTS + " points)";
+    let popCount = 0;
+    const stop = fireworks($("#fw"), reduced ? 6000 : 11000, () => { if (soundOn && popCount++ % 2 === 0) Sound.pop(); });
+    if (soundOn){
+      Sound.playCelebration();
+      Sound.speak("Way to go, Max! You got an A!", 1.1, 1.0, 1400);
+    }
+    const btn = $("#a-close"); btn.classList.remove("show");
+    setTimeout(() => btn.classList.add("show"), 2500);
+    const close = () => { stop(); ov.hidden = true; document.body.style.overflow = ""; try { window.speechSynthesis && window.speechSynthesis.cancel(); } catch (e) {} };
+    btn.onclick = close;
+    ov.onclick = e => { if (e.target === ov || e.target.id === "fw"){ if (btn.classList.contains("show")) close(); } };
+  }
+  function womp(score){
+    const ov = $("#ov-womp"); ov.hidden = false; document.body.style.overflow = "hidden";
+    $("#womp-line2").textContent = score.pct + "% (" + score.letter + "). See what you missed and run it back.";
+    const inner = $(".inner", ov), text = $("#womp-text"), puff = $("#puff");
+    text.classList.remove("sad-in"); void text.offsetWidth; text.classList.add("sad-in");
+    puff.classList.remove("go");
+    const btn = $("#womp-close"); btn.classList.remove("show");
+    setTimeout(() => btn.classList.add("show"), 2500);
+    const timers = [];
+    if (soundOn){
+      const tromboneLen = Sound.playWomp() || 2.9;
+      Sound.speak("Womp. Womp.", 0.1, 0.6, Math.round(tromboneLen * 1000) + 150);
+      timers.push(setTimeout(() => {
+        Sound.playFart();
+        puff.classList.add("go");
+        if (!reduced){ inner.classList.remove("shake"); void inner.offsetWidth; inner.classList.add("shake"); }
+      }, Math.round(tromboneLen * 1000) + 2100));
+    } else {
+      timers.push(setTimeout(() => puff.classList.add("go"), 1200));
+    }
+    const close = () => {
+      timers.forEach(clearTimeout); ov.hidden = true; document.body.style.overflow = "";
+      try { window.speechSynthesis && window.speechSynthesis.cancel(); } catch (e) {}
+    };
+    btn.onclick = close;
+    ov.onclick = e => { if (e.target === ov && btn.classList.contains("show")) close(); };
+  }
+
+  /* ============================== WIRING ============================== */
+  render();
+  test.addEventListener("input", refreshUI);
+  test.addEventListener("change", refreshUI);
+  restore(load(STORE_KEY));
+  (function(){ const b = load(BEST_KEY); if (b){ $("#best-line").hidden = false; $("#best-val").textContent = b.pct + "% (" + b.letter + ")"; } })();
+
+  function finish(){
+    $("#confirm").hidden = true;
+    const res = grade();
+    markItems(res);
+    const score = showResults(res);
+    window.scrollTo({top: 0, behavior: "auto"});
+    if (score.letter === "A") celebrateA(score); else womp(score);
+  }
+  $("#btn-check").addEventListener("click", () => {
+    if (soundOn){ Sound.ensure(); Sound.unlockSpeech(); }
+    const a = collect();
+    const skipped = ALL.filter(n => !itemAnswered(n, a));
+    if (skipped.length){
+      $("#confirm-text").textContent = "You skipped " + skipped.length + (skipped.length === 1 ? " question." : " questions.") + " Skipped questions count as wrong.";
+      $("#confirm").hidden = false;
+      $("#btn-back").onclick = () => { $("#confirm").hidden = true; const el = $("#q" + skipped[0]); if (el) el.scrollIntoView({behavior: reduced ? "auto" : "smooth", block:"center"}); };
+      $("#btn-anyway").onclick = () => { if (soundOn){ Sound.ensure(); Sound.unlockSpeech(); } finish(); };
+      $("#confirm").scrollIntoView({behavior: reduced ? "auto" : "smooth", block:"nearest"});
+      return;
+    }
+    finish();
+  });
+})();
+</script>
+</body>
+</html>
