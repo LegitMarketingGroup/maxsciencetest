@@ -2,7 +2,7 @@
 Builds two SEPARATE PDFs from content.py:
   LCA_Life_Science_Ch1_Practice_Test.pdf   (student copy, no answers)
   LCA_Life_Science_Ch1_Answer_Key.pdf      (answers only)
-Styled to Lexington Christian Academy: royal blue #003399, condensed caps headings.
+Styled to Lexington Christian Academy: royal blue #253A7E, condensed caps headings.
 """
 import os
 from reportlab.lib.pagesizes import letter
@@ -23,13 +23,13 @@ MARGIN = 0.75 * inch
 TOP_MARGIN = 0.95 * inch
 BODY_W = PAGE_W - 2 * MARGIN
 
-LCA_BLUE = colors.HexColor("#003399")
-LCA_DEEP = colors.HexColor("#00246B")
-GOLD = colors.HexColor("#F2B705")
-GRAY = colors.HexColor("#525252")
-RULE = colors.HexColor("#C6D2E8")
-TINT = colors.HexColor("#E9EFFA")
-BAND = colors.HexColor("#F4F7FD")
+LCA_BLUE = colors.HexColor("#253A7E")
+LCA_DEEP = colors.HexColor("#172550")
+EDGE = colors.HexColor("#0E0C0B")
+GRAY = colors.HexColor("#55575E")
+RULE = colors.HexColor("#CFCCCB")
+TINT = colors.HexColor("#E7EAF4")
+BAND = colors.HexColor("#F2F3F8")
 
 BASE, BOLD, ITAL = "Helvetica", "Helvetica-Bold", "Helvetica-Oblique"
 
@@ -38,7 +38,7 @@ st_sub = ParagraphStyle("s", fontName=BASE, fontSize=12, leading=15, alignment=T
 st_eyebrow = ParagraphStyle("e", fontName=BOLD, fontSize=8, leading=11, alignment=TA_CENTER, textColor=GRAY)
 st_badge = ParagraphStyle("b", fontName=BOLD, fontSize=12, leading=15, alignment=TA_CENTER, textColor=colors.white)
 st_part = ParagraphStyle("p", fontName=BOLD, fontSize=11, leading=14, textColor=colors.white)
-st_partpts = ParagraphStyle("pp", fontName=BASE, fontSize=8.5, leading=14, textColor=colors.HexColor("#C5D5F5"),
+st_partpts = ParagraphStyle("pp", fontName=BASE, fontSize=8.5, leading=14, textColor=colors.HexColor("#C3CBE4"),
                             alignment=2)
 st_instr = ParagraphStyle("i", fontName=ITAL, fontSize=9.5, leading=12.5, textColor=GRAY, spaceAfter=5)
 st_body = ParagraphStyle("bd", fontName=BASE, fontSize=10.5, leading=13.8)
@@ -74,9 +74,9 @@ def word_bank(words, cols=4, lettered=False, title="WORD BANK"):
     grid = [["" for _ in range(cols)] for _ in range(rows)]
     for i, w in enumerate(words):
         r, c = i % rows, i // rows
-        label = f"<b><font color='#003399'>{LETTERS[i]}.</font></b>  " if lettered else ""
+        label = f"<b><font color='#253A7E'>{LETTERS[i]}.</font></b>  " if lettered else ""
         grid[r][c] = Paragraph(label + w, st_cell)
-    head = [[Paragraph(f"<b><font color='#003399'>{title}</font></b>", st_small)] + [""] * (cols - 1)]
+    head = [[Paragraph(f"<b><font color='#253A7E'>{title}</font></b>", st_small)] + [""] * (cols - 1)]
     t = Table(head + grid, colWidths=[BODY_W / cols] * cols)
     t.setStyle(TableStyle([("BOX", (0, 0), (-1, -1), 0.8, RULE),
                            ("LINEABOVE", (0, 0), (-1, 0), 2, LCA_BLUE),
@@ -123,7 +123,7 @@ def make_header_footer(right_label):
         canv.drawRightString(PAGE_W - MARGIN, PAGE_H - 0.55 * inch, right_label.upper())
         canv.setStrokeColor(LCA_BLUE); canv.setLineWidth(1.6)
         canv.line(MARGIN, PAGE_H - 0.63 * inch, PAGE_W - MARGIN, PAGE_H - 0.63 * inch)
-        canv.setStrokeColor(GOLD); canv.setLineWidth(1.2)
+        canv.setStrokeColor(EDGE); canv.setLineWidth(1.1)
         canv.line(MARGIN, PAGE_H - 0.655 * inch, PAGE_W - MARGIN, PAGE_H - 0.655 * inch)
         canv.setFont(BASE, 8)
         canv.setFillColor(GRAY)
@@ -320,7 +320,7 @@ def build_key():
     s += part_heading("D", "True or False", PTS["tf"])
     for num, (_, is_true, why) in zip(NUM["tf"], C.TRUE_FALSE):
         s.append(Paragraph(f"<b>{num}.</b>  <b>{'T' if is_true else 'F'}</b>  "
-                           f"<font color='#525252'>{why}</font>", st_ans))
+                           f"<font color='#55575E'>{why}</font>", st_ans))
 
     blk = part_heading("E", "Worldview Chart", PTS["chart"])
     hc = ParagraphStyle("hc2", parent=st_cellb, alignment=TA_CENTER, textColor=colors.white)
@@ -373,7 +373,7 @@ def build_key():
     notes = [Table([[""]], colWidths=[BODY_W], rowHeights=[2])]
     notes[0].setStyle(TableStyle([("LINEBELOW", (0, 0), (-1, -1), 1.6, LCA_BLUE)]))
     notes.append(Spacer(1, 6))
-    notes.append(Paragraph("<b><font color='#003399'>NOTES FOR RYAN</font></b>", st_body))
+    notes.append(Paragraph("<b><font color='#253A7E'>NOTES FOR RYAN</font></b>", st_body))
     for line in C.NOTES_FOR_PARENT:
         notes.append(Paragraph("-  " + line, st_note))
     s.append(KeepTogether(notes))
