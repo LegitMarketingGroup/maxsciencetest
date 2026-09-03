@@ -9,6 +9,7 @@
 <style>
   :root{
     --bg:#F4F4F8; --surface:#FFFFFF; --surface-2:#E8E9F1; --ink:#16192A; --muted:#55575E; --line:#CFCCCB;
+    --brand:#253A7E; --brand-deep:#172550; --brand-ink:#FFFFFF;
     --accent:#253A7E; --accent-ink:#FFFFFF; --accent-soft:#E2E5F2; --accent-deep:#172550;
     --edge:#0E0C0B; --silver:#CFCCCB;
     --good:#146B3F; --good-soft:#DEEFE5; --bad:#A82318; --bad-soft:#F8E2E0; --warn:#7D5200; --warn-soft:#F7EDD6;
@@ -19,7 +20,9 @@
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
       --bg:#0B0E1A; --surface:#131829; --surface-2:#1C223A; --ink:#E8EBF6; --muted:#9DA3B5; --line:#333A52;
-      --accent:#8CA2E0; --accent-ink:#0B1226; --accent-soft:#1E2542; --accent-deep:#C3CFF0;
+      --brand:#253A7E; --brand-deep:#172550; --brand-ink:#FFFFFF;
+      --brand:#253A7E; --brand-deep:#172550; --brand-ink:#FFFFFF;
+    --accent:#8CA2E0; --accent-ink:#0B1226; --accent-soft:#1E2542; --accent-deep:#C3CFF0;
       --edge:#000000; --silver:#CFCCCB;
       --good:#57C98D; --good-soft:#123324; --bad:#F0907F; --bad-soft:#3A1B18; --warn:#DDB160; --warn-soft:#382B12;
       --stamp:#F0907F; --grid:rgba(140,162,224,.13);
@@ -28,6 +31,7 @@
   }
   :root[data-theme="dark"]{
     --bg:#0B0E1A; --surface:#131829; --surface-2:#1C223A; --ink:#E8EBF6; --muted:#9DA3B5; --line:#333A52;
+    --brand:#253A7E; --brand-deep:#172550; --brand-ink:#FFFFFF;
     --accent:#8CA2E0; --accent-ink:#0B1226; --accent-soft:#1E2542; --accent-deep:#C3CFF0;
     --edge:#000000; --silver:#CFCCCB;
     --good:#57C98D; --good-soft:#123324; --bad:#F0907F; --bad-soft:#3A1B18; --warn:#DDB160; --warn-soft:#382B12;
@@ -49,7 +53,7 @@
   .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
   /* ---------- masthead: LCA royal blue band ---------- */
-  .hero{background:var(--accent);color:#fff;border-bottom:3px solid var(--edge)}
+  .hero{background:var(--brand);color:#fff;border-bottom:3px solid var(--edge)}
   .hero-inner{max-width:780px;margin:0 auto;padding:26px 20px 22px}
   .eyebrow{
     font-family:"Oswald",sans-serif;font-weight:500;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
@@ -77,7 +81,7 @@
   .fill{height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .25s ease}
   .btn{
     font-family:"Oswald",sans-serif;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.86rem;
-    border:2px solid var(--accent);background:var(--accent);color:var(--accent-ink);
+    border:2px solid var(--brand);background:var(--brand);color:var(--brand-ink);
     padding:9px 16px;border-radius:3px;cursor:pointer;white-space:nowrap;transition:transform .08s ease,filter .15s ease;
   }
   .btn:hover{filter:brightness(1.1)} .btn:active{transform:translateY(1px)}
@@ -94,11 +98,11 @@
   /* ---------- body ---------- */
   main{max-width:780px;margin:0 auto;padding:12px 20px 60px}
   .part{margin-top:36px}
-  .part-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--accent);color:#fff;padding:9px 14px;border-radius:3px}
+  .part-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--brand);color:#fff;padding:9px 14px;border-radius:3px}
   .part-head h2{font-family:"Oswald",sans-serif;font-weight:600;font-size:1.12rem;letter-spacing:.05em;text-transform:uppercase;margin:0;line-height:1.25}
   .part-head .pts{font-family:"Oswald",sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;
     color:#C5D5F5;margin-left:auto;white-space:nowrap}
-  .part.challenge .part-head{background:var(--accent-deep)}
+  .part.challenge .part-head{background:var(--brand-deep)}
   .part.challenge .part-head h2::before{content:"\2605";color:var(--silver);margin-right:8px}
   .instr{color:var(--muted);margin:10px 2px 0;font-size:.94rem}
 
@@ -124,7 +128,7 @@
     background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
   select:focus{border-color:var(--accent)}
 
-  .bank{margin-top:12px;background:var(--surface-2);border:1px solid var(--line);border-top:3px solid var(--accent);
+  .bank{margin-top:12px;background:var(--surface-2);border:1px solid var(--line);border-top:3px solid var(--brand);
     border-radius:3px;padding:11px 13px;display:flex;flex-wrap:wrap;gap:6px 8px}
   .bank .bl{width:100%;font-family:"Oswald",sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.14em;
     text-transform:uppercase;color:var(--accent);margin-bottom:2px}
@@ -142,12 +146,12 @@
   .seg span{display:block;padding:8px 20px;font-family:"Oswald",sans-serif;font-weight:600;letter-spacing:.06em;
     text-transform:uppercase;font-size:.86rem;color:var(--muted)}
   .seg label + label span{border-left:1.5px solid var(--line)}
-  .seg input:checked + span{background:var(--accent);color:var(--accent-ink)}
+  .seg input:checked + span{background:var(--brand);color:var(--brand-ink)}
   .seg input:focus-visible + span{outline:3px solid var(--accent);outline-offset:-3px}
 
   .chart{margin-top:12px;border:1px solid var(--line);border-radius:3px;overflow:hidden}
   .chart-row{display:grid;grid-template-columns:1.1fr 1.4fr 1.4fr;gap:8px;padding:9px 12px;border-top:1px solid var(--line);align-items:center}
-  .chart-row:first-child{border-top:0;background:var(--accent);color:#fff}
+  .chart-row:first-child{border-top:0;background:var(--brand);color:#fff}
   .chart-row:first-child span{font-family:"Oswald",sans-serif;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.82rem;text-align:center}
   .chart-row .cap{display:none;font-family:"Oswald",sans-serif;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:2px}
   .chart-row .rlabel{font-weight:700}
@@ -189,7 +193,7 @@
 
   /* results */
   .results{max-width:780px;margin:0 auto;padding:22px 20px 0}
-  .card{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--accent);border-radius:3px;
+  .card{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--brand);border-radius:3px;
     box-shadow:var(--shadow);padding:20px}
   .score-row{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
   .stamp{width:132px;height:132px;border-radius:50%;border:5px double var(--stamp);color:var(--stamp);
